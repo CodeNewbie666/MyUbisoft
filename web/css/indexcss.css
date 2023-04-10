@@ -1,0 +1,247 @@
+* {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+#zy {
+    width: 100%;
+    height: 2000px;
+    background-color: #000000;
+}
+
+nav {
+    width: 100%;
+    height: 3%;
+    background-color: black;
+}
+
+nav img {
+    width: 15%;
+    height: 100%;
+    float: left;
+}
+
+nav a {
+    color: aliceblue;
+    font-size: 150%;
+    float: left;
+    margin: 1% 1%;
+}
+
+.input-group {
+    margin-top: 0.5%;
+    float: left;
+    width: 25%;
+}
+
+.dropdown-toggle {
+    border-radius: 10px;
+    background-color: #9D9D9D;
+
+    font-size: 20px;
+    float: left;
+    margin-left: 620px;
+    margin-top: 8px;
+
+}
+
+.dropdown-menu {
+    margin-top: 3%;
+    font-style: oblique;
+
+    border-radius: 10px;
+}
+
+
+.btn-lg {
+    float: right;
+    background-color: black;
+    border: solid black;
+    font-size: 20px;
+}
+
+.modal {
+
+    margin-top: 15%;
+    margin-left: 20%;
+
+}
+
+.modal-content { /*控制框的大小*/
+
+    width: 59%;
+    height: 55%;
+}
+
+#myModalLabel {
+    text-align: center;
+    color: white;
+}
+
+#wblr {
+    font-size: 20px;
+    color: #D58512;
+    float: left;
+}
+
+
+.btn-default {
+    clear: both;
+    font-size: 14px;
+    width: 110px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #269ABC;
+}
+
+#dlxk {
+    color: white;
+    border-radius: 10px;
+    background-color: #269ABC;
+    width: 120px;
+    height: 40px;
+    margin-right: 25px;
+}
+
+#czq {
+
+    margin-right: 15%;
+}
+
+#sy {
+    background-color: #888888;
+}
+
+#bgphoto {
+
+    width: 100%;
+    height: 70%;
+}
+
+.carousel-caption {
+    font-size: 30px;
+    color: #FFFF00;
+}
+
+#gsdt {
+    float: left;
+    width: 25%;
+    height: 20%;
+
+
+}
+
+#gsdt ol {
+    list-style-type: none;
+}
+
+#gsdt-bt {
+    margin-top: 5%;
+    width: 90%;
+    text-align: center;
+    color: white;
+    font-size: 180%;
+    border-radius: 10px;
+    background-color: #C0A16B;
+}
+
+.gsdt-1 {
+    color: white;
+    font-size: 120%;
+    margin-left: -10%;
+}
+
+#Prizewinning {
+    float: left;
+    width: 75%;
+    height: 18%;
+}
+
+#Prizewinning iframe {
+    width: 100%;
+    height: 100%;
+    border: solid black;
+}
+
+#spmc {
+    text-align: center;
+    font-size: 150%;
+    color: cyan;
+}
+
+#ub {
+    clear: both;
+    width: 100%;
+    height: 18%;
+    margin-top: 25%;
+    background-color: black;
+}
+
+#ub img {
+    float: left;
+    width: 26%;
+    height: 100%;
+}
+
+#ubzl {
+    margin-top: 0.5%;
+    font-size: 150%;
+
+    color: white;
+    width: 74%;
+    float: left;
+
+}
+
+#zb {
+    width: 100%;
+    height: 42%;
+    background-color: #454545;
+}
+
+#first {
+    width: 100%;
+
+}
+
+#first img {
+    width: 19%;
+    margin-left: 0.6%;
+    margin-bottom: 3%;
+}
+
+#scand {
+    width: 100%;
+}
+
+#scand img {
+
+    width: 19%;
+    margin-left: 0.6%;
+}
+
+#gryx {
+
+    width: 15%;
+    margin-top: -2.75%;
+    margin-left: 45%;
+
+}
+
+#gryx img {
+    width: 70%;
+}
+
+#hddb {
+    margin-left: -900px;
+}
+
+#bq {
+    float: left;
+
+    color: white;
+    width: 205%;
+}
