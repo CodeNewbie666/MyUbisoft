@@ -9,7 +9,7 @@ public class test {
     public static void main(String[] args) {
         SqlSession sqlSession = MybatisUntil.getSqlSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-        User aaa = mapper.findUserByAndPassword("aaa", "666");
+        User aaa = mapper.findUserByIdAndPassword("aaa", "666");
         System.out.println(aaa);
     }
 }

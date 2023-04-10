@@ -4,8 +4,15 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.dao.Mybatis.mapper.UserMapper">
-    <select id="findUserByAndPassword" resultType="User">
+    <select id="findUserByIdAndPassword" resultType="User">
         select * from user where
-        name= #{name} and password=#{password}
+        username= #{username} and password=#{password}
     </select>
+
+    <select id="findUserByName" resultType="User">
+        select * from user where username=#{username}
+    </select>
+    <insert id="addUser" >
+        insert into user(username,password,phonenumber) values(#{username},#{password},#{phoneNumber})
+    </insert>
 </mapper>

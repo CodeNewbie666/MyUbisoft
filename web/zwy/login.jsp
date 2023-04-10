@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: 憨憨
+  User: 李成俊
   Date: 2023-04-10
   Time: 9:44
   To change this template use File | Settings | File Templates.
@@ -20,6 +20,7 @@
     <!-- 3. 导入bootstrap的js文件 -->
     <script src="../js/bootstrap.min.js"></script>
     <script type="text/javascript">
+        <%--提交前进行非空的校验--%>
         $(function (){
             var form=document.getElementById("myForm");
             //添加submit事件监听器
@@ -45,7 +46,7 @@
     </script>
 </head>
 
-<body>
+<body style="background-color: #9acfea;">
 <div class="container" style="width: 400px;">
     <h3 style="text-align: center;">欢迎登录</h3>
     <%--进行登录验证--%>
@@ -60,14 +61,10 @@
             <input type="password" name="password" class="form-control" id="password" placeholder="请输入密码"/>
         </div>
 
-        <%--<div class="form-inline">
-            <label for="vcode">验证码：</label>
-            <input type="text" name="verifycode" class="form-control" id="verifycode" placeholder="请输入验证码" style="width: 120px;"/>
-            <a href="javascript:refreshCode()"><img src="vcode" title="看不清点击刷新" id="vcode"/></a>
-        </div>--%>
         <hr/>
         <div class="form-group" style="text-align: center;">
             <input class="btn btn btn-primary" type="submit" value="登录">
+            <a class="btn btn btn-primary" href="register.jsp">注册</a>
         </div>
     </form>
 
