@@ -45,11 +45,11 @@
             <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dropdownMenu1">
 
                 <li role="presentation">
-                    <a role="menuitem" tabindex="-1" href="#">个人中心</a>
+                    <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/zwy/updateuser.jsp">修改信息</a>
                 </li>
 
                 <li role="presentation">
-                    <a role="menuitem" tabindex="-1" href="#">退出登录</a>
+                    <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/logout">退出登录</a>
                 </li>
 
             </ul>

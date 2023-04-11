@@ -11,7 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-<a href="/MyUbisoft/zwy/login.jsp">登录失败，点击返回登录界面</a>
+<a href="${pageContext.request.contextPath}/zwy/login.jsp">登录失败，点击返回登录界面</a>
 
 </body>
 </html>

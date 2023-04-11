@@ -2,17 +2,17 @@ package com.dao.Mybatis.pojo;
 
 import java.io.Serializable;
 
-public class User {
+public class Vip{
     private int id;
     private String username;
     private String password;
     private String phoneNumber;
     private int status;
 
-    public User() {
+    public Vip() {
     }
 
-    public User(int id, String username, String password, String phoneNumber, int status) {
+    public Vip(int id, String username, String password, String phoneNumber, int status) {
         this.id = id;
         this.username = username;
         this.password = password;

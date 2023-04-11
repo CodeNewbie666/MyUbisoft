@@ -1,15 +1,11 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 李成俊
-  Date: 2023-04-10
-  Time: 9:44
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="com.dao.Mybatis.pojo.User" %>
+<%@ page import="com.service.impl.UserServiceImpl" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8"/>
-    <title>注册页面</title>
+    <title>更新用户</title>
 
     <!-- 1. 导入CSS的全局样式 -->
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
@@ -52,16 +48,14 @@
             $("#username").blur(function () {
                 //获取username文本输入框的值
                 var username = $(this).val();
-                <%--获取单选框里面的用户类别，根据类别去对应的表查询，看用户名是否存在--%>
-                var status = document.querySelector('input[name="status"]:checked').value;
+
                 //发送ajax请求
-                $.get("/MyUbisoft/findUserServlet?"+$.param({username:username,status:status}),
-                    function(data){
-                        if(data==="true"){
-                            //用户名存在username
-                            alert("用户名存在");
-                            $("#username").val("");
-                        }
+                $.get("/MyUbisoft/findUserServlet",{username:username},function (data) {
+                    if(data==="true"){
+                        //用户名存在username
+                        alert("用户名存在");
+                        $("#username").val("");
+                    }
                 });
             });
 
@@ -78,41 +72,45 @@
             });
         })
     </script>
+
+    <%
+        /*显示当前登录的用户的信息*/
+        String username = (String) request.getSession().getAttribute("username");
+        UserServiceImpl userService =new UserServiceImpl();
+        User user = userService.userNamecheck(username);
+        request.getSession().setAttribute("id",user.getId());
+    %>
 </head>
 
 <body style="background-color: #9acfea;">
 <div class="container" style="width: 400px;">
     <h3 style="text-align: center;">请填写你的信息</h3>
     <%--进行登录验证--%>
-    <form action="${pageContext.request.contextPath}/register" method="post" id="myRegister">
+    <form action="${pageContext.request.contextPath}/updateUser" method="post" id="myRegister">
         <div class="form-group">
             <label for="username">用户名：</label>
-            <input type="text" name="username" class="form-control" id="username" placeholder="请输入用户名"/>
+            <input type="text" name="username" class="form-control" id="username" value="<%=user.getUsername()%>"/>
         </div>
         <div id="checkpassword">
             <div class="form-group">
                 <label for="password">密码：</label>
-                <input type="password" name="password" class="form-control" id="password" placeholder="请输入密码"/>
+                <input type="password" name="password" class="form-control" id="password" value="<%=user.getPassword()%>"/>
             </div>
 
             <div class="form-group">
                 <label for="password2">确认密码：</label>
-                <input type="password" name="password2" class="form-control" id="password2" placeholder="请输入密码"/>
+                <input type="password" name="password2" class="form-control" id="password2" placeholder="请确认密码"/>
             </div>
         </div>
 
         <div class="form-group">
             <label for="phone">电话号码：</label>
-            <input type="text" name="phone" class="form-control" id="phone" placeholder="请输入密码"/>
+            <input type="text" name="phone" class="form-control" id="phone" value="<%=user.getPhoneNumber()%>"/>
         </div>
 
         <hr/>
-        账户类型:<input type="radio" name="status" value="1">普通用户
-        <input type="radio" name="status" value="2" checked="checked">会员
-
         <div class="form-group" style="text-align: center;">
-            <input class="btn btn btn-primary" type="submit" value="注册">
-            <a class="btn btn btn-primary" href="${pageContext.request.contextPath}/zwy/login.jsp">返回</a>
+            <input class="btn btn btn-primary" type="submit" value="点击修改">
         </div>
     </form>
 

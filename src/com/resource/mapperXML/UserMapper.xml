@@ -5,14 +5,39 @@
 
 <mapper namespace="com.dao.Mybatis.mapper.UserMapper">
     <select id="findUserByIdAndPassword" resultType="User">
-        select * from user where
-        username= #{username} and password=#{password}
+        select * from user where username=#{username} and password=#{password}
+    </select>
+
+    <select id="findUserById" resultType="User">
+        select * from user where id=#{id}
     </select>
 
     <select id="findUserByName" resultType="User">
         select * from user where username=#{username}
     </select>
+
+    <select id="findAllUser" resultType="User">
+        select * from user
+    </select>
+    
     <insert id="addUser" >
         insert into user(username,password,phonenumber) values(#{username},#{password},#{phoneNumber})
     </insert>
+    
+    <update id="updateUser" parameterType="User">
+        update user
+        <set>
+            <if test="username!=null and username!=''">
+                username=#{username},
+            </if>
+            <if test="password!=null and password!=''">
+                password=#{password},
+            </if>
+            <if test="phoneNumber!=null and phoneNumber!=''">
+                phonenumber=#{phoneNumber}
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+
 </mapper>
