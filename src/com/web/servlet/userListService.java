@@ -1,13 +1,8 @@
 package com.web.servlet;
 
-import com.dao.Mybatis.pojo.User;
-import com.dao.Mybatis.pojo.Vip;
+import com.dao.Mybatis.pojo.PageBean;
 import com.service.AdminService;
-import com.service.UserService;
-import com.service.VipService;
 import com.service.impl.AdminServiceImpl;
-import com.service.impl.UserServiceImpl;
-import com.service.impl.VipServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,13 +10,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
+/**
+ * 该servetl用来查询全部的普通用户和会员用户
+ */
 @WebServlet(urlPatterns = {"/userList"})
 public class userListService extends HttpServlet {
-    UserService userService = new UserServiceImpl();
-    VipService vipService = new VipServiceImpl();
+    AdminService adminService =new AdminServiceImpl();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doPost(req, resp);
@@ -29,13 +24,19 @@ public class userListService extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<User> user = userService.findAllUser();
-        List<Vip>  Vips = vipService.findAllVip();
-        List<Object> allUsers = new ArrayList<>();
-        allUsers.addAll(user);
-        allUsers.addAll(Vips);
+        //获取当前是第几页
+        String currentPage_ = req.getParameter("currentPage");
+        if (currentPage_==null||currentPage_==""){
+            currentPage_="1";
+        }
+        int currentPage = Integer.parseInt(currentPage_);
+        //每页显示6条
+        int rows = 6;
+        PageBean pageBean = adminService.findUserByPage(currentPage, rows);
+        System.out.println(pageBean);
+
         //将查询出来的全部用户数据转发到前端页面
-        req.setAttribute("allUsers",allUsers);
+        req.setAttribute("pageBean",pageBean);
         req.getRequestDispatcher("/zwy/userlist.jsp").forward(req,resp);
     }
 }

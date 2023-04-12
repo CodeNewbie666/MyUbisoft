@@ -74,7 +74,7 @@
     </script>
 
     <%
-        /*显示当前登录的用户的信息*/
+        /*根据保存的session,显示当前登录的用户的信息*/
         String username = (String) request.getSession().getAttribute("username");
         UserServiceImpl userService =new UserServiceImpl();
         User user = userService.userNamecheck(username);

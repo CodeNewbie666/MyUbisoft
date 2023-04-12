@@ -39,6 +39,23 @@
                 //校验通过，提交表单
                 form.submit();
             });
+
+            // 读取保存的用户名和密码的cookie
+            function getCookie(name) {
+                let cookieString = document.cookie;
+                let cookies = cookieString.split(";");
+                for(let i = 0; i < cookies.length;i++){
+                    let cookie = cookies[i].split("=");
+                    if (cookie[0] === name){
+                        return cookie[1];
+                    }
+                }
+            }
+
+            let username = getCookie("username");
+            if(username){
+                document.getElementById("username").value=username;
+            }
         })
     </script>
 </head>

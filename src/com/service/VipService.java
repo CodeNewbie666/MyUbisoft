@@ -18,4 +18,6 @@ public interface VipService {
     public void addVip(String username,String password, String phoneNumber);
 
     public void updateVip(User user);
+
+    public void deleteVipById(Integer id);
 }

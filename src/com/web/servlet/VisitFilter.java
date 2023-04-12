@@ -25,6 +25,7 @@ public class VisitFilter implements Filter {
 
         //统一设置编码
         request.setCharacterEncoding("utf-8");
+
         filterChain.doFilter(servletRequest,servletResponse);
     }
 

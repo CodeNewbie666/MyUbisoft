@@ -80,6 +80,7 @@
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String phoneNumber = request.getParameter("phoneNumber");
+        String status = request.getParameter("status");
     %>
 </head>
 
@@ -88,8 +89,8 @@
     <h3 style="text-align: center;">请填写你的信息</h3>
     <%--进行登录验证--%>
     <form action="${pageContext.request.contextPath}/changeUser" method="post" id="myRegister">
-        <div class="form-group">
-            <label for="id">用户名：</label>
+        <div class="form-group" style="display:none;">
+            <label for="id">id：</label>
             <input type="text" name="id" class="form-control" id="id" value=<%=id%> />
         </div>
         <div class="form-group">
@@ -111,6 +112,11 @@
         <div class="form-group">
             <label for="phone">电话号码：</label>
             <input type="text" name="phoneNumber" class="form-control" id="phone" value="<%=phoneNumber%>"/>
+        </div>
+
+        <div class="form-group">
+            <label for="status">账号类型：</label>
+            <input type="text" name="status" class="form-control" id="status" value="<%=status%>"/>
         </div>
 
         <hr/>

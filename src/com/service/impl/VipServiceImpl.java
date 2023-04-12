@@ -13,7 +13,6 @@ public class VipServiceImpl implements VipService {
     private static SqlSession sqlSession = MybatisUntil.getSqlSession();
     private static VipMapper mapper = sqlSession.getMapper(VipMapper.class);
 
-
     @Override
     public Vip findVipByIdAndPassword(String username, String password) {
         return mapper.findVipByIdAndPassword(username,password);
@@ -41,5 +40,10 @@ public class VipServiceImpl implements VipService {
     @Override
     public void updateVip(User user) {
         mapper.updateVip(user);
+    }
+
+    @Override
+    public void deleteVipById(Integer id) {
+
     }
 }

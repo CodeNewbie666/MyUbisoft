@@ -5,7 +5,7 @@
 
 <mapper namespace="com.dao.Mybatis.mapper.UserMapper">
     <select id="findUserByIdAndPassword" resultType="User">
-        select * from user where username=#{username} and password=#{password}
+        SELECT* FROM user WHERE username=#{username} and password=#{password};
     </select>
 
     <select id="findUserById" resultType="User">

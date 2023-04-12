@@ -19,4 +19,6 @@ public interface VipMapper {
                         @Param(value = "phoneNumber") String phoneNumber);
 
     public void updateVip(User user);
+
+    public void deleteVipById(@Param(value = "id")Integer id);
 }
