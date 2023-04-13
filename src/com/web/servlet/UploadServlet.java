@@ -29,28 +29,21 @@ public class UploadServlet extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         resp.setContentType("text/html;charset=UTF-8");
         Part part = req.getPart("fileUpload");
-        System.out.println("part=========================="+part);
-     /* System.out.println("getSubmittedFileName" + part.getSubmittedFileName());
-        System.out.println("getSize" + part.getSize());
-        System.out.println("getName" + part.getName());
-        System.out.println("getContentType" + part.getContentType());*/
         Comment comment = new Comment();
         String textComment = req.getParameter("textComment");
         //获取传入的文件名
         String submittedFileName = part.getSubmittedFileName();
-        System.out.println("submittedFileName========================"+part.getSubmittedFileName());
-        System.out.println("textComment========+++++++++++++++++========"+textComment);
         String username =( String) req.getSession().getAttribute("username");
-        System.out.println("username========+++++++++++++++++========"+username);
 
         //进行非空校验，输入的评论为空时，也没有上传图片时 直接返回评论页面
         if(textComment==null||"".equals(textComment)&&(submittedFileName==null||"".equals(submittedFileName))){
             req.getRequestDispatcher("/comment").forward(req,resp);
             return;
         }else if(submittedFileName.toLowerCase().endsWith(".jpg")||
-                submittedFileName.toLowerCase().endsWith(".png")){
+             submittedFileName.toLowerCase().endsWith(".png")){
             //获取存储的路径
-            String realPath = getServletContext().getRealPath("/upload");
+            String realPath = getServletContext().getRealPath("/img/commentImg");
+            System.out.println("getServletContext().getRealPath==="+realPath);
             //创建file对象
             File file = new File(realPath);
 
@@ -76,59 +69,6 @@ public class UploadServlet extends HttpServlet {
         }
         commentService.addComment(comment);
         req.getRequestDispatcher("/comment").forward(req,resp);
-
-          /*  if(part.getSubmittedFileName().toLowerCase().endsWith(".jpg")||
-                part.getSubmittedFileName().toLowerCase().endsWith(".png")){
-            //获取存储的路径
-            String realPath = getServletContext().getRealPath("/upload");
-            //创建file对象
-            File file = new File(realPath);
-
-            //如果文件夹不存在则创建文件夹
-            if(!file.exists()){
-                file.mkdirs();
-            }
-            //为保存的图片设置名字
-            String fileName = UUID.randomUUID().toString().replaceAll("-","")+
-                    part.getSubmittedFileName().substring(part.getSubmittedFileName().lastIndexOf("."));
-            part.write(realPath + "/" + fileName);
-            //删除临时文件
-            part.delete();
-            req.setAttribute("message",part.getSubmittedFileName() + "上传成功");
-
-            //用户添加的文件是.jpg，.png图片时。将文件名保存到数据库
-            comment.setPicture(fileName);
-        } else {
-            comment.setUsername(username);
-            comment.setTextComment(textComment);
-        }
-        commentService.addComment(comment);*/
-
-        //判断上传文件的类型
-       /* if(part.getSubmittedFileName().toLowerCase().endsWith(".jpg")||
-                part.getSubmittedFileName().toLowerCase().endsWith(".png")){
-            //获取存储的路径
-            String realPath = getServletContext().getRealPath("/upload");
-            //创建file对象
-            File file = new File(realPath);
-
-            //如果文件夹不存在则创建文件夹
-            if(!file.exists()){
-                file.mkdirs();
-            }
-            //为保存的图片设置名字
-            String fileName = UUID.randomUUID().toString().replaceAll("-","")+
-                    part.getSubmittedFileName().substring(part.getSubmittedFileName().lastIndexOf("."));
-            part.write(realPath + "/" + fileName);
-            //删除临时文件
-            part.delete();
-            req.setAttribute("message",part.getSubmittedFileName() + "上传成功");
-
-            //用户添加的文件是.jpg，.png图片时。将文件名保存到数据库
-            comment.setPicture(fileName);
-        }*/
-        //添加数据到评论表,添加完后返回显示全部
-
     }
 
 }

@@ -1,3 +1,10 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: 憨憨
+  Date: 2023-04-11
+  Time: 21:35
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html lang="zh-CN">
@@ -7,20 +14,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>我的育碧游戏</title>
 
-    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
     <script src="js/jquery-2.1.0.min.js"></script>
-    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
     <script src="js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/indexcss.css" type="text/css" />
+
 </head>
 
 <body>
-
 <div id="zy">
     <nav>
         <img src="img/logo.png"/>
@@ -31,7 +34,7 @@
 
                 <input type="text" class="form-control" placeholder="搜索资讯 商品或游戏">
                 <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" style="background-color: #D4D4D4;">搜索</button>
+                    <button class="btn btn-default" type="button" style="background-color: #D4D4D4;">搜索</button>
                 </span>
             </div>
         </form>
@@ -43,24 +46,14 @@
             </button>
 
             <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dropdownMenu1">
-
                 <li role="presentation">
                     <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/zwy/updateuser.jsp">修改信息</a>
                 </li>
 
                 <li role="presentation">
-                    <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/zwy/updateuser.jsp">设置头像</a>
-                </li>
-
-                <li role="presentation">
                     <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/logout">退出登录</a>
                 </li>
-
             </ul>
-            <!-- 登录按钮（Modal） -->
-            <img src=>
-            <img src=>
-
         </div>
     </nav>
 
@@ -106,36 +99,36 @@
         <div id="gsdt">
             <p id="gsdt-bt">资讯</p>
             <ol>
-                <li><a class="gsdt-1" href="https://www.ubisoft.com.cn/news2/show/1989" target="_blank">1.主设计师访谈--游戏背后的故事</a>
+                <li><a class="gsdt-1" href="${pageContext.request.contextPath}/comment" target="_blank">1.主设计师访谈--游戏背后的故事</a>
                 </li>
                 <li><a class="gsdt-1"
-                       href="https://baike.baidu.com/reference/950025/35ff-ml2_ptHnJKKD0g8jAsvvrtqeqOgtfJjf2AorgUDEZC8W_cmBdLWULiZtkFlXSxaXWF9512GItlVxps8ZSZ5D3A1ag"
+                       href="${pageContext.request.contextPath}/comment"
                        target="_blank">2.育碧公布最新财报 营业收入和利润创新高</a></li>
-                <li><a class="gsdt-1" href="https://www.ubisoft.com.cn/news2/show/2084"
+                <li><a class="gsdt-1" href="${pageContext.request.contextPath}/comment"
                        target="_blank">3.《荣耀战魂》5月计划表</a></li>
 
-                <li><a class="gsdt-1" href="https://www.ubisoft.com.cn/news2/show/2046" target="_blank">4.《全境封锁2》4月18日
+                <li><a class="gsdt-1" href="${pageContext.request.contextPath}/comment" target="_blank">4.《全境封锁2》4月18日
                     维护更新详情</a></li>
-                <li><a class="gsdt-1" href="https://www.ubisoft.com.cn/news2/show/2080" target="_blank">5.《刺客信条》——2019 年
+                <li><a class="gsdt-1" href="${pageContext.request.contextPath}/comment" target="_blank">5.《刺客信条》——2019 年
                     5 月更新</a></li>
-                <li><a class="gsdt-1" href="https://www.ubisoft.com.cn/news2/show/2064" target="_blank">6.《全境封锁2》制作团队访谈——聊聊新版本</a>
+                <li><a class="gsdt-1" href="${pageContext.request.contextPath}/comment" target="_blank">6.《全境封锁2》制作团队访谈——聊聊新版本</a>
                 </li>
-                <li><a class="gsdt-1" href="https://www.ubisoft.com.cn/news2/show/2020" target="_blank">7.来《饥饿龙》参加复活节狩猎，赢取复活节彩蛋</a>
+                <li><a class="gsdt-1" href="${pageContext.request.contextPath}/comment" target="_blank">7.来《饥饿龙》参加复活节狩猎，赢取复活节彩蛋</a>
                 </li>
-                <li><a class="gsdt-1" href="https://www.ubisoft.com.cn/news2/show/2076" target="_blank">8.展开复仇！《看门狗》简体中文更新现已上线</a>
+                <li><a class="gsdt-1" href="${pageContext.request.contextPath}/comment" target="_blank">8.展开复仇！《看门狗》简体中文更新现已上线</a>
                 </li>
-                <li><a class="gsdt-1" href="https://www.ubisoft.com.cn/news2/show/2021" target="_blank">9.《全境封锁冲破黎明》官方小说即将登陆！</a>
+                <li><a class="gsdt-1" href="${pageContext.request.contextPath}/comment" target="_blank">9.《全境封锁冲破黎明》官方小说即将登陆！</a>
                 </li>
-                <li><a class="gsdt-1" href="https://www.ubisoft.com.cn/news2/show/2083" target="_blank">10.《刺客信条：奥德赛》创造未知的世界</a>
+                <li><a class="gsdt-1" href="${pageContext.request.contextPath}/comment" target="_blank">10.《刺客信条：奥德赛》创造未知的世界</a>
                 </li>
-                <li><a class="gsdt-1" href="https://www.ubisoft.com.cn/news2/show/2067" target="_blank">11.游戏小技巧，特工们你们GET到了么</a> 
+                <li><a class="gsdt-1" href="${pageContext.request.contextPath}/comment" target="_blank">11.游戏小技巧，特工们你们GET到了么</a>
                 </li>
-                <li><a class="gsdt-1" href="https://www.ubisoft.com.cn/news2/show/2057"
+                <li><a class="gsdt-1" href="${pageContext.request.contextPath}/comment"
                        target="_blank">12《英灵乱战》每周活动开启 </a>
                 </li>
                 <br/>
                 <li><a class="gsdt-1"
-                       href="https://baike.baidu.com/reference/950025/c8f14rezJqlUPNJRqd4P2D6UITJj7LGYujcQUJG2s4EXXysdkypqvYpxvEwxiFuiwLr3-5AetcmDeo4xlpv0CBkSf6_OM8LNEmldVw"
+                       href="${pageContext.request.contextPath}/comment"
                        target="_blank">育碧公布了新的Logo 官方解释Logo背后含义</a>
                 </li>
             </ol>
@@ -160,20 +153,20 @@
 
         <div id="zb">
             <div id="first">
-                <a href="zwy/ckxtxx.html" target="_blank"> <img src="img/ckxtxxx.png"/>
-                <a href="zwy/ckxtqy.html" target="_blank"><img src="img/ylxdhy.png"/>
-                <a href="zwy/ckxtqy.html" target="_blank"><img src="img/ckxtqy.png"/>
+                <a href="${pageContext.request.contextPath}/comment" target="_blank"> <img src="img/ckxtxxx.png"/></a>
+                <a href="${pageContext.request.contextPath}/comment" target="_blank"><img src="img/ylxdhy.png"/></a>
+                <a href="${pageContext.request.contextPath}/comment" target="_blank"><img src="img/ckxtqy.png"/></a>
 
-                <a href="zwy/ckxtbns.html" target="_blank"><img src="img/ckxtbns.png">
-                <a href="zwy/ckxtpb.html" target="_blank"><img src="img/cckxtpb.png"/>
+                <a href="${pageContext.request.contextPath}/comment" target="_blank"><img src="img/ckxtbns.png"/></a>
+                <a href="${pageContext.request.contextPath}/comment" target="_blank"><img src="img/cckxtpb.png"/></a>
             </div>
 
             <div id="scand">
-                <a href="zwy/ckxtxdh.html" target="_blank"><img src="img/chyh.png"/>
-                <a href="zwy/ckxthq.html" target="_blank"><img src="img/gdjh.png"/>
-                <a href="zwy/ckxtdgm.html" target="_blank"><img src="img/dgm.png"/>
-                <a href="zwy/ckxt1.html" target="_blank"><img src="img/xkzs.png"/>
-                <a href="zwy/ckxt2.html" target="_blank"><img src="img/ylxdhy.png"/>
+                <a href="${pageContext.request.contextPath}/comment" target="_blank"><img src="img/chyh.png"/></a>
+                <a href="${pageContext.request.contextPath}/comment" target="_blank"><img src="img/gdjh.png"/></a>
+                <a href="${pageContext.request.contextPath}/comment" target="_blank"><img src="img/dgm.png"/></a>
+                <a href="${pageContext.request.contextPath}/comment" target="_blank"><img src="img/xkzs.png"/></a>
+                <a href="${pageContext.request.contextPath}/comment" target="_blank"><img src="img/ylxdhy.png"/></a>
             </div>
         </div>
 

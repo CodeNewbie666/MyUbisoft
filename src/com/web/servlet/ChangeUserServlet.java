@@ -12,11 +12,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * 用于管理员修改用户的信息
+ */
 @WebServlet("/changeUser")
 public class ChangeUserServlet extends HttpServlet {
     AdminService adminService = new AdminServiceImpl();
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doPost(req, resp);
+        this.doPost(req, resp);
     }
 
     @Override
@@ -29,21 +32,18 @@ public class ChangeUserServlet extends HttpServlet {
         String password = req.getParameter("password");
         String phoneNumber = req.getParameter("phoneNumber");
         String status = req.getParameter("status");
-        System.out.println("status= "+status);
 
         if ("1".equals(status)){
             user.setId(id);
             user.setUsername(username);
             user.setPassword(password);
             user.setPhoneNumber(phoneNumber);
-            //req.setAttribute("user",user);
             adminService.changeUser(user);
         }else if("2".equals(status)){
             vip.setId(id);
             vip.setUsername(username);
             vip.setPassword(password);
             vip.setPhoneNumber(phoneNumber);
-            //req.setAttribute("user",user);
             adminService.changeVip(vip);
         }
         req.getRequestDispatcher("/userList").forward(req,resp);

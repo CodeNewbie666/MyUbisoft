@@ -24,13 +24,11 @@ public class LoginServlet extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doPost(req, resp);
+        this.doPost(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-       // String username = new String(req.getParameter("username").getBytes("iso-8859-1"), "utf-8");
-
         String username = req.getParameter("username");
         System.out.println("用户名："+username);
         String password = req.getParameter("password");
@@ -58,7 +56,7 @@ public class LoginServlet extends HttpServlet{
                 }else req.getRequestDispatcher("/zwy/loginfail.jsp").forward(req,resp);
                 break;
 
-            case "2":  //进入会员页面
+            case "2":  //进入评论页面
                 if (vipService.findVipByNameAndPassword(username,password)!=null){
                     addCookie(req,resp,username,password);
                     req.getRequestDispatcher("/comment").forward(req,resp);
@@ -70,7 +68,7 @@ public class LoginServlet extends HttpServlet{
         }
     }
 
-        //保存登录的用户的session和向浏览器发送Cookie
+    //登录成功后，保存登录的用户的session，并向浏览器发送Cookie
     public void addCookie(HttpServletRequest req,HttpServletResponse resp,String username,String password){
         HttpSession session = req.getSession();
         session.setAttribute("username",username);

@@ -35,15 +35,16 @@ public class VipServiceImpl implements VipService {
     @Override
     public void addVip(String username, String password, String phoneNumber) {
         mapper.addVip(username,password,phoneNumber);
+        sqlSession.commit();
     }
 
     @Override
     public void updateVip(User user) {
         mapper.updateVip(user);
+        sqlSession.commit();
     }
 
     @Override
     public void deleteVipById(Integer id) {
-
     }
 }

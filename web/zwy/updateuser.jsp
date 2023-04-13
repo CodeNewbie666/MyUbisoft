@@ -1,3 +1,10 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: 憨憨
+  Date: 2023-04-12
+  Time: 21:43
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page import="com.dao.Mybatis.pojo.User" %>
 <%@ page import="com.service.impl.UserServiceImpl" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -7,12 +14,10 @@
     <meta charset="utf-8"/>
     <title>更新用户</title>
 
-    <!-- 1. 导入CSS的全局样式 -->
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
-    <!-- 2. jQuery导入，建议使用1.9以上的版本 -->
     <script src="${pageContext.request.contextPath}/js/jquery-2.1.0.min.js"></script>
-    <!-- 3. 导入bootstrap的js文件 -->
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+
     <script type="text/javascript">
         <%--提交前进行非空的校验--%>
         $(function (){
@@ -42,7 +47,6 @@
                 //校验通过，提交表单
                 form.submit();
             });
-
 
             <%--使用ajax进行用户名是否存在的判断--%>
             $("#username").blur(function () {

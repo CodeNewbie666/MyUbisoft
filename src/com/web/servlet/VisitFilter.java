@@ -8,7 +8,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- * 所有页面进行校验，防止非admin用户进入管理页面
+ * 所有页面进行统一的编码设置
  */
 @WebFilter(urlPatterns = {"/*"})
 public class VisitFilter implements Filter {
@@ -20,12 +20,8 @@ public class VisitFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest)servletRequest;
-       // HttpServletResponse response = (HttpServletResponse) servletResponse;
-        //HttpSession session = request.getSession();
-
         //统一设置编码
         request.setCharacterEncoding("utf-8");
-
         filterChain.doFilter(servletRequest,servletResponse);
     }
 

@@ -24,21 +24,23 @@ public class FindUserServlet extends HttpServlet{
     VipService vipService = new VipServiceImpl();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doPost(req, resp);
+        this.doPost(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String username = req.getParameter("username");
         String status = req.getParameter("status");
-        System.out.println("================false=======");
+
         Object exist = null;
+        //根据要注册的用户类型，去对应的表进行查询
         if ("1".equals(status)) {
             exist = userService.userNamecheck(username);
         }else if ("2".equals(status)){
             exist = vipService.findVipByName(username);
         }
 
+        //如果没有查询到对应的用户，证明该用户名可以使用
         if (exist!=null){
             System.out.println("true");
             resp.getWriter().write("true");

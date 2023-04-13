@@ -10,12 +10,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * 该servlet用来删除管理员选中的用户
+ */
 @WebServlet(urlPatterns = "/deleteSelect")
 public class deleteSelectServlet extends HttpServlet {
     AdminService adminService = new AdminServiceImpl();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doPost(req, resp);
+        this.doPost(req, resp);
     }
 
     @Override
@@ -28,7 +31,7 @@ public class deleteSelectServlet extends HttpServlet {
             String[] split = andStatus.split(",");
             adminService.deleteUserById(split[0],split[1]);
         }
-
+        //删除完毕后，重新查询全部用户，然后返回前端页面
         req.getRequestDispatcher("/userList").forward(req,resp);
     }
 }

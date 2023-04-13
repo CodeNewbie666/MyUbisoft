@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * 用于用户修改自己的账号信息，如用户名，密码等
+ */
 @WebServlet(urlPatterns = {"/updateUser"})
 public class UpdateUserServlet extends HttpServlet {
     UserService userService = new UserServiceImpl();
@@ -28,9 +31,7 @@ public class UpdateUserServlet extends HttpServlet {
         System.out.println(userById);
 
         String username = req.getParameter("username");
-        System.out.println(username);
         String password = req.getParameter("password");
-        System.out.println(password);
         String phone = req.getParameter("phone");
 
         //用户未修改过的信息，就不需要进行更新了
@@ -44,7 +45,7 @@ public class UpdateUserServlet extends HttpServlet {
         if (!phone.equals(userById.getPhoneNumber())){
             user.setPhoneNumber(phone);
         }
-
+        //进行用户数据更新
         userService.updateUser(user);
         req.getRequestDispatcher("/index.jsp").forward(req,resp);
     }

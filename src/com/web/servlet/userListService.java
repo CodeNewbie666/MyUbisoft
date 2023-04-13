@@ -13,6 +13,7 @@ import java.io.IOException;
 
 /**
  * 该servetl用来查询全部的普通用户和会员用户
+ * 进行分页显示
  */
 @WebServlet(urlPatterns = {"/userList"})
 public class userListService extends HttpServlet {

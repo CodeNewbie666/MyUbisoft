@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * 用来实现显示全部的评论
+ */
 @WebServlet(urlPatterns = "/comment")
 public class commentListServlet extends HttpServlet {
     CommentService commentService = new CommentServiceImpl();
@@ -25,6 +28,7 @@ public class commentListServlet extends HttpServlet {
         //对所有评论进行读取，然后发送到浏览器
         List<Comment> allComment = commentService.getAllComment();
         req.setAttribute("allComment",allComment);
+        //查询后返回评论页面
         req.getRequestDispatcher("/zwy/comment.jsp").forward(req,resp);
     }
 }

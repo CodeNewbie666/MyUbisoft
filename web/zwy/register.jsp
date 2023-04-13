@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: 李成俊
+  User: 憨憨
   Date: 2023-04-10
   Time: 9:44
   To change this template use File | Settings | File Templates.
@@ -11,12 +11,10 @@
     <meta charset="utf-8"/>
     <title>注册页面</title>
 
-    <!-- 1. 导入CSS的全局样式 -->
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
-    <!-- 2. jQuery导入，建议使用1.9以上的版本 -->
     <script src="${pageContext.request.contextPath}/js/jquery-2.1.0.min.js"></script>
-    <!-- 3. 导入bootstrap的js文件 -->
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+
     <script type="text/javascript">
         <%--提交前进行非空的校验--%>
         $(function (){
@@ -46,7 +44,6 @@
                 //校验通过，提交表单
                 form.submit();
             });
-
 
             <%--使用ajax进行用户名是否存在的判断--%>
             $("#username").blur(function () {
@@ -89,6 +86,7 @@
             <label for="username">用户名：</label>
             <input type="text" name="username" class="form-control" id="username" placeholder="请输入用户名"/>
         </div>
+
         <div id="checkpassword">
             <div class="form-group">
                 <label for="password">密码：</label>
