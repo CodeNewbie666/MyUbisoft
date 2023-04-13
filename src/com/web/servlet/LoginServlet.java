@@ -74,6 +74,7 @@ public class LoginServlet extends HttpServlet{
     public void addCookie(HttpServletRequest req,HttpServletResponse resp,String username,String password){
         HttpSession session = req.getSession();
         session.setAttribute("username",username);
+        session.setAttribute("password",password);
 
         resp.addCookie(new Cookie("username",username));
         resp.addCookie(new Cookie("password",password));
