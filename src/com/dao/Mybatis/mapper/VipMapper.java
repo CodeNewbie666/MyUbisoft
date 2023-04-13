@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface VipMapper {
-    public Vip findVipByIdAndPassword(@Param(value = "username")String username, @Param(value = "password") String password);
+    public Vip findVipByNameAndPassword(@Param(value = "username")String username, @Param(value = "password") String password);
 
     public Vip findVipByName(@Param(value = "username")String username);
 

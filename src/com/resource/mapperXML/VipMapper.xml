@@ -17,7 +17,7 @@
     </select>
 
     <select id="findVipByNameAndPassword" resultType="Vip">
-        select * from Admin where username=#{name} and password=#{password}
+        select * from vip where username=#{username} and password=#{password}
     </select>
 
     <select id="findAllVip" resultType="Vip">

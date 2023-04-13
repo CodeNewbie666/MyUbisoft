@@ -23,5 +23,6 @@
         <mapper resource="mapperXML/UserMapper.xml"/>
         <mapper resource="mapperXML/AdminMapper.xml"/>
         <mapper resource="mapperXML/VipMapper.xml"/>
+        <mapper resource="mapperXML/CommentMapper.xml"/>
     </mappers>
 </configuration>

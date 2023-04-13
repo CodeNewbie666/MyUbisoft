@@ -51,17 +51,17 @@ public class LoginServlet extends HttpServlet{
                 }else req.getRequestDispatcher("/zwy/loginfail.jsp").forward(req,resp);
                 break;
 
-            case "1":
-                if (userService.findUserByIdAndPassword(username,password)!=null){
+            case "1"://普通用户进入主页
+                if (userService.findVipByNameAndPassword(username,password)!=null){
                     addCookie(req,resp,username,password);
                     req.getRequestDispatcher("/index.jsp").forward(req,resp);
                 }else req.getRequestDispatcher("/zwy/loginfail.jsp").forward(req,resp);
                 break;
 
             case "2":  //进入会员页面
-                if (vipService.findVipByIdAndPassword(username,password)!=null){
+                if (vipService.findVipByNameAndPassword(username,password)!=null){
                     addCookie(req,resp,username,password);
-                    req.getRequestDispatcher("/index.jsp").forward(req,resp);
+                    req.getRequestDispatcher("/comment").forward(req,resp);
                 }else req.getRequestDispatcher("/zwy/loginfail.jsp").forward(req,resp);
                 break;
 

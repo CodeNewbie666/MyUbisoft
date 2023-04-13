@@ -26,9 +26,10 @@ public class userListService extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //获取当前是第几页
         String currentPage_ = req.getParameter("currentPage");
-        if (currentPage_==null||currentPage_==""){
+        if (currentPage_==null|| currentPage_.equals("")){
             currentPage_="1";
         }
+
         int currentPage = Integer.parseInt(currentPage_);
         //每页显示6条
         int rows = 6;

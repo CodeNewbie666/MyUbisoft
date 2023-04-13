@@ -23,6 +23,22 @@
             $("#select").click(function (){
                 document.getElementById("from").submit();
             })
+
+            /*$("#prov").click(function (){
+                if (${pageBean.currentPage}-1<1){
+                    ${pageBean.currentPage}=1;
+                }
+            })
+
+            $("#next").click(function (){
+                if (${pageBean.currentPage}+1>${pageBean.maxPage}){
+                    ${pageBean.currentPage}=1;
+                }
+            })*/
+
+            var prov=document.getElementById("prov");
+            var next=document.getElementById("next");
+
         })
     </script>
 </head>
@@ -67,24 +83,43 @@
         <nav aria-label="Page navigation">
             <ul class="pagination">
                 <li>
-                    <a href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
+                    <a class="previous"
+                            <c:set var="currentPage" value="${pageBean.currentPage}"/>
+                            <c:if test="${currentPage ==1}">
+                                href="javascript:void(0)"
+                            </c:if>
+                            <c:if test="${currentPage!=1}">
+                                href="${pageContext.request.contextPath}/userList?currentPage=${currentPage-1}"
+                            </c:if>
+                    > <span aria-hidden="true" id="prov">&laquo;</span>
                     </a>
+
                 </li>
                 <c:forEach begin="1" end="${pageBean.maxPage}" var="i">
                     <%--当前页码高亮显示--%>
                     <c:if test="${pageBean.currentPage==i}">
                         <li class="active"><a href="${pageContext.request.contextPath}/userList?currentPage=${i}">${i}</a></li>
                     </c:if>
+
                     <c:if test="${pageBean.currentPage!=i}">
                         <li><a href="${pageContext.request.contextPath}/userList?currentPage=${i}">${i}</a></li>
                     </c:if>
                 </c:forEach>
 
                 <li>
-                    <a href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
+                    <a class="next"
+                            <c:set var="currentPage" value="${pageBean.currentPage}"/>
+                            <c:set var="totalPage" value="${pageBean.maxPage}"/>
+                            <c:if test="${currentPage ==totalPage}">
+                                href="javascript:void(0)"
+                            </c:if>
+                            <c:if test="${currentPage!=totalPage}">
+                                href="${pageContext.request.contextPath}/userList?currentPage=${pageBean.currentPage+1}""
+                            </c:if>
+
+                    ><span aria-hidden="true" id="next">&raquo;</span>
                     </a>
+
                 </li>
                 <span style="font-size: 25px;margin-left: 5px;">
                     共${pageBean.maxrow}记录，共${pageBean.maxPage}页

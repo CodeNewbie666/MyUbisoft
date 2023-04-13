@@ -14,8 +14,8 @@ public class VipServiceImpl implements VipService {
     private static VipMapper mapper = sqlSession.getMapper(VipMapper.class);
 
     @Override
-    public Vip findVipByIdAndPassword(String username, String password) {
-        return mapper.findVipByIdAndPassword(username,password);
+    public Vip findVipByNameAndPassword(String username, String password) {
+        return mapper.findVipByNameAndPassword(username,password);
     }
 
     public List<Vip> findAllVip(){

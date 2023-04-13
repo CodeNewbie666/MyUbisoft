@@ -49,11 +49,17 @@
                 </li>
 
                 <li role="presentation">
+                    <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/zwy/updateuser.jsp">设置头像</a>
+                </li>
+
+                <li role="presentation">
                     <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/logout">退出登录</a>
                 </li>
 
             </ul>
             <!-- 登录按钮（Modal） -->
+            <img src=>
+            <img src=>
 
         </div>
     </nav>

@@ -6,19 +6,19 @@
 <mapper namespace="com.dao.Mybatis.mapper.AdminMapper">
     <delete id="deleteUserById" >
         <if test="status==1">
-            delete from  user where id=#{id}
+            delete from user where id=#{id}
         </if>
         <if test="status==2">
             delete from vip where id=#{id}
         </if>
     </delete>
 
-    <select id="findAdminById" resultType="User">
-        select * from user where id=#{id}
+    <select id="findAdminById" resultType="Admin">
+        select * from admin where id=#{id}
     </select>
 
     <select id="findAdminByNameAndPassword" resultType="User">
-        select * from Admin where username=#{name} and password=#{password}
+        select * from admin where username=#{name} and password=#{password}
     </select>
 
     <select id="findAllUser" resultType="User">

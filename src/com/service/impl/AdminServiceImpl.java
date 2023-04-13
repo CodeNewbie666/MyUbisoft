@@ -54,7 +54,7 @@ public class AdminServiceImpl implements AdminService {
         int start = (currentPage-1)*rows;
 
         //判断是否为最后一页, 最后一页获取比较特殊
-        int end = currentPage==maxPage? (start+lastPageRow):rows*currentPage;
+        int end = currentPage==maxPage? (start+lastPageRow):(start+rows);
         List<Object> currentList= all.subList(start,end);
 
         pageBean.setMaxrow(all.size());

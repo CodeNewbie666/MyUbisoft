@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface UserMapper {
     //查询用户是否存在，进行登录验证
-    public User findUserByIdAndPassword(@Param(value = "username")String username,@Param(value = "password") String password);
+    public User findVipByNameAndPassword(@Param(value = "username")String username,@Param(value = "password") String password);
 
     public User findUserByName(@Param(value = "username")String username);
 

@@ -5,7 +5,7 @@ import com.dao.Mybatis.pojo.User;
 import java.util.List;
 
 public interface UserService {
-    public User findUserByIdAndPassword(String username, String password);
+    public User findVipByNameAndPassword(String username, String password);
 
     public User userNamecheck(String username);
 

@@ -12,8 +12,8 @@ public class UserServiceImpl implements UserService {
     private static SqlSession sqlSession = MybatisUntil.getSqlSession();
     private static UserMapper mapper = sqlSession.getMapper(UserMapper.class);
 
-    public User findUserByIdAndPassword(String username,String password){
-       return mapper.findUserByIdAndPassword(username, password);
+    public User findVipByNameAndPassword(String username,String password){
+       return mapper.findVipByNameAndPassword(username, password);
     }
 
     public User userNamecheck(String username){
